@@ -12,13 +12,14 @@ function HeroSection() {
 
     useEffect(() => {
         async function sequence() {
-            await headingControls.start({ opacity: 1, y: 0, transition: { duration: 0.5, delay: 0.2 } })
-            await paragraphControls.start({ opacity: 1, y: 0, transition: { duration: 0.5, delay: 0.4 } })
-            await buttonControls.start({ opacity: 1, y: 0, transition: { duration: 0.5, delay: 0.6 } })
+            await headingControls.start({ opacity: 1, y: 0, transition: { duration: 0.5, delay: 0.2 } });
+            await paragraphControls.start({ opacity: 1, y: 0, transition: { duration: 0.5, delay: 0.4 } });
+            await buttonControls.start({ opacity: 1, y: 0, transition: { duration: 0.5, delay: 0.6 } });
         }
 
-        sequence()
-    }, [])
+        sequence();
+    }, [headingControls, paragraphControls, buttonControls]); 
+
 
     return (
         <div className="h-auto md:h-[40rem] w-full rounded-md flex flex-col items-center justify-center relative overflow-hidden mx-auto py-10 md:py-0">
@@ -36,12 +37,12 @@ function HeroSection() {
                     animate={paragraphControls}
                     className="mt-4 font-normal text-base md:text-lg text-neutral-300 max-w-lg mx-auto"
                 >
-                    Dive into our comprehensive music courses and transform your musical journey today. Whether you're a beginner or looking to refine your skills, join us to unlock your true potential.
+                    Dive into our comprehensive music courses and transform your musical journey today. Whether you&apos;re a beginner or looking to refine your skills, join us to unlock your true potential.
                 </motion.p>
                 <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                animate={buttonControls}
-                className="mt-4">
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={buttonControls}
+                    className="mt-4">
                     <Link href="/courses">
                         <Button
                             borderRadius="1.75rem"
